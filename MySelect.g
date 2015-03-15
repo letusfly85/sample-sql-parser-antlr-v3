@@ -20,16 +20,17 @@ stat:
 
 select_clause:
 		select_key
-		colum_list_clause
+		column_list_clause
 		(from_clause)?
 		->
 		^(SELECT_STATEMENT
-			^(COLUMN_LIST colum_list_clause)
+			^(COLUMN_LIST column_list_clause)
 			^(FROM_LIST from_clause)*
 		)
 	;
 
-colum_list_clause:
+
+column_list_clause:
 		ID (COMMA ID)* -> (COLUMN_NAME ID)* ;
 
 from_clause:
