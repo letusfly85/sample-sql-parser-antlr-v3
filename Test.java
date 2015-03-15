@@ -12,20 +12,20 @@ public class Test {
 				MySelect parser = new MySelect(tokens);
 
 				CommonTree tree = (CommonTree)parser.select_clause().getTree();
+
+				walkTree(tree);
+		}
+
+		public static void walkTree(CommonTree tree) throws Exception {
 				System.out.println(tree.getText());
-				System.out.println(tree.getChildCount());
-				System.out.println(tree.toStringTree());
 
-				System.out.println("###################");
+				for (int i=0; i < tree.getChildCount(); i++) {
+					CommonTree cTree = (CommonTree)tree.getChild(i);
+					System.out.printf("\t %s\n", cTree.getText());
 
-				CommonTree cTree = (CommonTree)tree.getChild(0);
-				System.out.println(cTree.getText());
-				System.out.println(cTree.toStringTree());
-				System.out.println(cTree.getChildCount());
-
-				for (int i=0; i < cTree.getChildCount(); i++) {
-					CommonTree nTree = (CommonTree)cTree.getChild(i);
-					System.out.println(nTree.getText());
+					if (cTree.getChildCount() > 0) {
+							walkTree(cTree);
+					}
 				}
 		}
 }
