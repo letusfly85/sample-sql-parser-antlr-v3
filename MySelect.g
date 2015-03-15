@@ -52,18 +52,16 @@ alias:
 	;
 
 column_clause:
-	column_name  alias
-	-> (COLUMN_CLAUSE ^(COLUMN_NAME column_name COLUMN_ALIAS alias))* 
+		column_name  alias
+	->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name COLUMN_ALIAS alias))* 
 	|
-	column_name 
-	-> (COLUMN_CLAUSE ^(COLUMN_NAME column_name))* 
+		column_name 
+	->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name))* 
 	;
 
 column_list_clause:
 			column_clause (COMMA column_clause)*
-		//->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name (ALIAS_NAME alias)?))*
 		->	(column_clause)*
-		//->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name (ALIAS_NAME alias)?))*
 		;
 
 from_clause:
