@@ -5,11 +5,11 @@ public class Test {
 		public static void main(String[] args) throws Exception {
 				ANTLRInputStream input = new ANTLRInputStream(System.in);
 
-				MyLexerLexer lexer = new MyLexerLexer(input);
+				MyLexer lexer = new MyLexer(input);
 
 				CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-				MySelect parser = new MySelect(tokens);
+				MySelectParser parser = new MySelectParser(tokens);
 
 				CommonTree tree = (CommonTree)parser.select_clause().getTree();
 
@@ -17,11 +17,11 @@ public class Test {
 		}
 
 		public static void walkTree(CommonTree tree) throws Exception {
-				System.out.println(tree.getText());
+				System.out.printf("# %s\n", tree.getText());
 
 				for (int i=0; i < tree.getChildCount(); i++) {
 					CommonTree cTree = (CommonTree)tree.getChild(i);
-					System.out.printf("\t %s\n", cTree.getText());
+					System.out.printf("#\t# %s\n", cTree.getText());
 
 					if (cTree.getChildCount() > 0) {
 							walkTree(cTree);

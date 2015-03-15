@@ -1,9 +1,11 @@
-parser grammar MySelect;
+grammar MySelect;
 
 options {
 	tokenVocab=MyLexer;
 	output=AST;
 }
+
+import MyLexer;
 
 tokens {
 	SELECT_STATEMENT;
@@ -12,11 +14,13 @@ tokens {
 	FROM_LIST;
 	FROM_TABLE;
 	FROM_ALIAS;
+	WHERE_CLAUSES;
 	WHERE_CLAUSE;
 	NOT_SYM;
 	OR_SYM;
 	AND_SYM;
-	EQ_SYM = '=';
+	EQ_SYM;
+	VARDEF;
 }
 
 stat:
@@ -27,12 +31,12 @@ select_clause:
 		select_key
 		column_list_clause
 		(from_clause)?
-		(where_clause)?
+		(where_clauses)?
 		->
 		^(SELECT_STATEMENT
 			^(COLUMN_LIST column_list_clause)
 			^(FROM_LIST from_clause)*
-			^(WHERE_CLAUSE where_clause)*
+			^(WHERE_CLAUSES where_clauses)*
 		)
 		;
 
@@ -49,15 +53,18 @@ select_key:
 		;
 
 relational_op: 
-		EQ_SYM;  //| LTH | GTH | NOT_EQ | LET | GET  ;
+		EQ;  //| LTH | GTH | NOT_EQ | LET | GET  ;
 
 where_clause:
 		//WHERE expression -> (WHERE_CLAUSE expression)
-		WHERE ID relational_op ID  -> ^(VARDEF ID)
+		//WHERE INT relational_op INT -> ^(VARDEF INT)
+		ID relational_op INT -> (VARDEF ^(ID INT))*
 		;
 
-expression:
-		VARDEF relational_op ID  -> ^(VARDEF ID)
+where_clauses:
+		WHERE
+			where_clause (AND where_clause)*
+		->	(WHERE_CLAUSE where_clause)*
 		;
 
 /*

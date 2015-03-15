@@ -1,4 +1,4 @@
-// $ANTLR 3.4 MySelect.g 2015-03-15 17:59:25
+// $ANTLR 3.4 MySelect.g 2015-03-15 18:40:09
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -9,39 +9,36 @@ import org.antlr.runtime.tree.*;
 
 
 @SuppressWarnings({"all", "warnings", "unchecked"})
-public class MySelect extends Parser {
+public class MySelectParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMA", "FROM", "ID", "INT", "NEWLINE", "SELECT", "SEMI", "WHERE", "WS", "'('", "')'", "'*'", "'+'", "'-'", "'='", "AND_SYM", "COLUMN_LIST", "COLUMN_NAME", "FROM_ALIAS", "FROM_LIST", "FROM_TABLE", "NOT_SYM", "OR_SYM", "SELECT_STATEMENT", "VARDEF", "WHERE_CLAUSE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "COMMA", "EQ", "FROM", "ID", "INT", "NEWLINE", "SELECT", "SEMI", "WHERE", "WS", "AND_SYM", "COLUMN_LIST", "COLUMN_NAME", "EQ_SYM", "FROM_ALIAS", "FROM_LIST", "FROM_TABLE", "NOT_SYM", "OR_SYM", "SELECT_STATEMENT", "VARDEF", "WHERE_CLAUSE", "WHERE_CLAUSES", "38"
     };
 
     public static final int EOF=-1;
-    public static final int T__13=13;
-    public static final int T__14=14;
-    public static final int T__15=15;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int COMMA=4;
-    public static final int FROM=5;
-    public static final int ID=6;
-    public static final int INT=7;
-    public static final int NEWLINE=8;
-    public static final int SELECT=9;
-    public static final int SEMI=10;
-    public static final int WHERE=11;
-    public static final int WS=12;
-    public static final int AND_SYM=19;
-    public static final int COLUMN_LIST=20;
-    public static final int COLUMN_NAME=21;
-    public static final int EQ_SYM=18;
-    public static final int FROM_ALIAS=22;
-    public static final int FROM_LIST=23;
-    public static final int FROM_TABLE=24;
-    public static final int NOT_SYM=25;
-    public static final int OR_SYM=26;
-    public static final int SELECT_STATEMENT=27;
-    public static final int VARDEF=28;
-    public static final int WHERE_CLAUSE=29;
+    public static final int AND=4;
+    public static final int COMMA=5;
+    public static final int EQ=6;
+    public static final int FROM=7;
+    public static final int ID=8;
+    public static final int INT=9;
+    public static final int NEWLINE=10;
+    public static final int SELECT=11;
+    public static final int SEMI=12;
+    public static final int WHERE=13;
+    public static final int WS=14;
+    public static final int AND_SYM=16;
+    public static final int COLUMN_LIST=17;
+    public static final int COLUMN_NAME=18;
+    public static final int EQ_SYM=21;
+    public static final int FROM_ALIAS=23;
+    public static final int FROM_LIST=24;
+    public static final int FROM_TABLE=25;
+    public static final int NOT_SYM=29;
+    public static final int OR_SYM=30;
+    public static final int SELECT_STATEMENT=32;
+    public static final int VARDEF=34;
+    public static final int WHERE_CLAUSE=36;
+    public static final int WHERE_CLAUSES=37;
 
     // delegates
     public Parser[] getDelegates() {
@@ -51,10 +48,10 @@ public class MySelect extends Parser {
     // delegators
 
 
-    public MySelect(TokenStream input) {
+    public MySelectParser(TokenStream input) {
         this(input, new RecognizerSharedState());
     }
-    public MySelect(TokenStream input, RecognizerSharedState state) {
+    public MySelectParser(TokenStream input, RecognizerSharedState state) {
         super(input, state);
     }
 
@@ -66,7 +63,7 @@ public void setTreeAdaptor(TreeAdaptor adaptor) {
 public TreeAdaptor getTreeAdaptor() {
     return adaptor;
 }
-    public String[] getTokenNames() { return MySelect.tokenNames; }
+    public String[] getTokenNames() { return MySelectParser.tokenNames; }
     public String getGrammarFileName() { return "MySelect.g"; }
 
 
@@ -77,26 +74,26 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "stat"
-    // MySelect.g:22:1: stat : ( select_clause )+ ;
-    public final MySelect.stat_return stat() throws RecognitionException {
-        MySelect.stat_return retval = new MySelect.stat_return();
+    // MySelect.g:26:1: stat : ( select_clause )+ ;
+    public final MySelectParser.stat_return stat() throws RecognitionException {
+        MySelectParser.stat_return retval = new MySelectParser.stat_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        MySelect.select_clause_return select_clause1 =null;
+        MySelectParser.select_clause_return select_clause1 =null;
 
 
 
         try {
-            // MySelect.g:22:5: ( ( select_clause )+ )
-            // MySelect.g:23:3: ( select_clause )+
+            // MySelect.g:26:5: ( ( select_clause )+ )
+            // MySelect.g:27:3: ( select_clause )+
             {
             root_0 = (Object)adaptor.nil();
 
 
-            // MySelect.g:23:3: ( select_clause )+
+            // MySelect.g:27:3: ( select_clause )+
             int cnt1=0;
             loop1:
             do {
@@ -110,9 +107,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt1) {
             	case 1 :
-            	    // MySelect.g:23:3: select_clause
+            	    // MySelect.g:27:3: select_clause
             	    {
-            	    pushFollow(FOLLOW_select_clause_in_stat83);
+            	    pushFollow(FOLLOW_select_clause_in_stat91);
             	    select_clause1=select_clause();
 
             	    state._fsp--;
@@ -163,46 +160,46 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "select_clause"
-    // MySelect.g:26:1: select_clause : select_key column_list_clause ( from_clause )? ( where_clause )? -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSE where_clause ) )* ) ;
-    public final MySelect.select_clause_return select_clause() throws RecognitionException {
-        MySelect.select_clause_return retval = new MySelect.select_clause_return();
+    // MySelect.g:30:1: select_clause : select_key column_list_clause ( from_clause )? ( where_clauses )? -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSES where_clauses ) )* ) ;
+    public final MySelectParser.select_clause_return select_clause() throws RecognitionException {
+        MySelectParser.select_clause_return retval = new MySelectParser.select_clause_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        MySelect.select_key_return select_key2 =null;
+        MySelectParser.select_key_return select_key2 =null;
 
-        MySelect.column_list_clause_return column_list_clause3 =null;
+        MySelectParser.column_list_clause_return column_list_clause3 =null;
 
-        MySelect.from_clause_return from_clause4 =null;
+        MySelectParser.from_clause_return from_clause4 =null;
 
-        MySelect.where_clause_return where_clause5 =null;
+        MySelectParser.where_clauses_return where_clauses5 =null;
 
 
-        RewriteRuleSubtreeStream stream_where_clause=new RewriteRuleSubtreeStream(adaptor,"rule where_clause");
         RewriteRuleSubtreeStream stream_from_clause=new RewriteRuleSubtreeStream(adaptor,"rule from_clause");
         RewriteRuleSubtreeStream stream_column_list_clause=new RewriteRuleSubtreeStream(adaptor,"rule column_list_clause");
         RewriteRuleSubtreeStream stream_select_key=new RewriteRuleSubtreeStream(adaptor,"rule select_key");
+        RewriteRuleSubtreeStream stream_where_clauses=new RewriteRuleSubtreeStream(adaptor,"rule where_clauses");
         try {
-            // MySelect.g:26:14: ( select_key column_list_clause ( from_clause )? ( where_clause )? -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSE where_clause ) )* ) )
-            // MySelect.g:27:3: select_key column_list_clause ( from_clause )? ( where_clause )?
+            // MySelect.g:30:14: ( select_key column_list_clause ( from_clause )? ( where_clauses )? -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSES where_clauses ) )* ) )
+            // MySelect.g:31:3: select_key column_list_clause ( from_clause )? ( where_clauses )?
             {
-            pushFollow(FOLLOW_select_key_in_select_clause95);
+            pushFollow(FOLLOW_select_key_in_select_clause103);
             select_key2=select_key();
 
             state._fsp--;
 
             stream_select_key.add(select_key2.getTree());
 
-            pushFollow(FOLLOW_column_list_clause_in_select_clause99);
+            pushFollow(FOLLOW_column_list_clause_in_select_clause107);
             column_list_clause3=column_list_clause();
 
             state._fsp--;
 
             stream_column_list_clause.add(column_list_clause3.getTree());
 
-            // MySelect.g:29:3: ( from_clause )?
+            // MySelect.g:33:3: ( from_clause )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -211,9 +208,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt2) {
                 case 1 :
-                    // MySelect.g:29:4: from_clause
+                    // MySelect.g:33:4: from_clause
                     {
-                    pushFollow(FOLLOW_from_clause_in_select_clause104);
+                    pushFollow(FOLLOW_from_clause_in_select_clause112);
                     from_clause4=from_clause();
 
                     state._fsp--;
@@ -226,7 +223,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // MySelect.g:30:3: ( where_clause )?
+            // MySelect.g:34:3: ( where_clauses )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -235,14 +232,14 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt3) {
                 case 1 :
-                    // MySelect.g:30:4: where_clause
+                    // MySelect.g:34:4: where_clauses
                     {
-                    pushFollow(FOLLOW_where_clause_in_select_clause111);
-                    where_clause5=where_clause();
+                    pushFollow(FOLLOW_where_clauses_in_select_clause119);
+                    where_clauses5=where_clauses();
 
                     state._fsp--;
 
-                    stream_where_clause.add(where_clause5.getTree());
+                    stream_where_clauses.add(where_clauses5.getTree());
 
                     }
                     break;
@@ -251,7 +248,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: where_clause, column_list_clause, from_clause
+            // elements: where_clauses, from_clause, column_list_clause
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -261,16 +258,16 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 31:3: -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSE where_clause ) )* )
+            // 35:3: -> ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSES where_clauses ) )* )
             {
-                // MySelect.g:32:3: ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSE where_clause ) )* )
+                // MySelect.g:36:3: ^( SELECT_STATEMENT ^( COLUMN_LIST column_list_clause ) ( ^( FROM_LIST from_clause ) )* ( ^( WHERE_CLAUSES where_clauses ) )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
                 (Object)adaptor.create(SELECT_STATEMENT, "SELECT_STATEMENT")
                 , root_1);
 
-                // MySelect.g:33:4: ^( COLUMN_LIST column_list_clause )
+                // MySelect.g:37:4: ^( COLUMN_LIST column_list_clause )
                 {
                 Object root_2 = (Object)adaptor.nil();
                 root_2 = (Object)adaptor.becomeRoot(
@@ -282,9 +279,9 @@ public TreeAdaptor getTreeAdaptor() {
                 adaptor.addChild(root_1, root_2);
                 }
 
-                // MySelect.g:34:4: ( ^( FROM_LIST from_clause ) )*
+                // MySelect.g:38:4: ( ^( FROM_LIST from_clause ) )*
                 while ( stream_from_clause.hasNext() ) {
-                    // MySelect.g:34:4: ^( FROM_LIST from_clause )
+                    // MySelect.g:38:4: ^( FROM_LIST from_clause )
                     {
                     Object root_2 = (Object)adaptor.nil();
                     root_2 = (Object)adaptor.becomeRoot(
@@ -299,22 +296,22 @@ public TreeAdaptor getTreeAdaptor() {
                 }
                 stream_from_clause.reset();
 
-                // MySelect.g:35:4: ( ^( WHERE_CLAUSE where_clause ) )*
-                while ( stream_where_clause.hasNext() ) {
-                    // MySelect.g:35:4: ^( WHERE_CLAUSE where_clause )
+                // MySelect.g:39:4: ( ^( WHERE_CLAUSES where_clauses ) )*
+                while ( stream_where_clauses.hasNext() ) {
+                    // MySelect.g:39:4: ^( WHERE_CLAUSES where_clauses )
                     {
                     Object root_2 = (Object)adaptor.nil();
                     root_2 = (Object)adaptor.becomeRoot(
-                    (Object)adaptor.create(WHERE_CLAUSE, "WHERE_CLAUSE")
+                    (Object)adaptor.create(WHERE_CLAUSES, "WHERE_CLAUSES")
                     , root_2);
 
-                    adaptor.addChild(root_2, stream_where_clause.nextTree());
+                    adaptor.addChild(root_2, stream_where_clauses.nextTree());
 
                     adaptor.addChild(root_1, root_2);
                     }
 
                 }
-                stream_where_clause.reset();
+                stream_where_clauses.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -355,9 +352,9 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "column_list_clause"
-    // MySelect.g:39:1: column_list_clause : ID ( COMMA ID )* -> ( COLUMN_NAME ID )* ;
-    public final MySelect.column_list_clause_return column_list_clause() throws RecognitionException {
-        MySelect.column_list_clause_return retval = new MySelect.column_list_clause_return();
+    // MySelect.g:43:1: column_list_clause : ID ( COMMA ID )* -> ( COLUMN_NAME ID )* ;
+    public final MySelectParser.column_list_clause_return column_list_clause() throws RecognitionException {
+        MySelectParser.column_list_clause_return retval = new MySelectParser.column_list_clause_return();
         retval.start = input.LT(1);
 
 
@@ -374,14 +371,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // MySelect.g:39:19: ( ID ( COMMA ID )* -> ( COLUMN_NAME ID )* )
-            // MySelect.g:40:3: ID ( COMMA ID )*
+            // MySelect.g:43:19: ( ID ( COMMA ID )* -> ( COLUMN_NAME ID )* )
+            // MySelect.g:44:3: ID ( COMMA ID )*
             {
-            ID6=(Token)match(input,ID,FOLLOW_ID_in_column_list_clause167);  
+            ID6=(Token)match(input,ID,FOLLOW_ID_in_column_list_clause175);  
             stream_ID.add(ID6);
 
 
-            // MySelect.g:40:6: ( COMMA ID )*
+            // MySelect.g:44:6: ( COMMA ID )*
             loop4:
             do {
                 int alt4=2;
@@ -394,13 +391,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt4) {
             	case 1 :
-            	    // MySelect.g:40:7: COMMA ID
+            	    // MySelect.g:44:7: COMMA ID
             	    {
-            	    COMMA7=(Token)match(input,COMMA,FOLLOW_COMMA_in_column_list_clause170);  
+            	    COMMA7=(Token)match(input,COMMA,FOLLOW_COMMA_in_column_list_clause178);  
             	    stream_COMMA.add(COMMA7);
 
 
-            	    ID8=(Token)match(input,ID,FOLLOW_ID_in_column_list_clause172);  
+            	    ID8=(Token)match(input,ID,FOLLOW_ID_in_column_list_clause180);  
             	    stream_ID.add(ID8);
 
 
@@ -424,9 +421,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 40:18: -> ( COLUMN_NAME ID )*
+            // 44:18: -> ( COLUMN_NAME ID )*
             {
-                // MySelect.g:40:21: ( COLUMN_NAME ID )*
+                // MySelect.g:44:21: ( COLUMN_NAME ID )*
                 while ( stream_ID.hasNext() ) {
                     adaptor.addChild(root_0, 
                     (Object)adaptor.create(COLUMN_NAME, "COLUMN_NAME")
@@ -475,9 +472,9 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "from_clause"
-    // MySelect.g:43:1: from_clause : FROM ID ( COMMA ID )* -> ( FROM_TABLE ID )* ;
-    public final MySelect.from_clause_return from_clause() throws RecognitionException {
-        MySelect.from_clause_return retval = new MySelect.from_clause_return();
+    // MySelect.g:47:1: from_clause : FROM ID ( COMMA ID )* -> ( FROM_TABLE ID )* ;
+    public final MySelectParser.from_clause_return from_clause() throws RecognitionException {
+        MySelectParser.from_clause_return retval = new MySelectParser.from_clause_return();
         retval.start = input.LT(1);
 
 
@@ -497,18 +494,18 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // MySelect.g:43:12: ( FROM ID ( COMMA ID )* -> ( FROM_TABLE ID )* )
-            // MySelect.g:44:3: FROM ID ( COMMA ID )*
+            // MySelect.g:47:12: ( FROM ID ( COMMA ID )* -> ( FROM_TABLE ID )* )
+            // MySelect.g:48:3: FROM ID ( COMMA ID )*
             {
-            FROM9=(Token)match(input,FROM,FOLLOW_FROM_in_from_clause195);  
+            FROM9=(Token)match(input,FROM,FOLLOW_FROM_in_from_clause203);  
             stream_FROM.add(FROM9);
 
 
-            ID10=(Token)match(input,ID,FOLLOW_ID_in_from_clause197);  
+            ID10=(Token)match(input,ID,FOLLOW_ID_in_from_clause205);  
             stream_ID.add(ID10);
 
 
-            // MySelect.g:44:11: ( COMMA ID )*
+            // MySelect.g:48:11: ( COMMA ID )*
             loop5:
             do {
                 int alt5=2;
@@ -521,13 +518,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt5) {
             	case 1 :
-            	    // MySelect.g:44:12: COMMA ID
+            	    // MySelect.g:48:12: COMMA ID
             	    {
-            	    COMMA11=(Token)match(input,COMMA,FOLLOW_COMMA_in_from_clause200);  
+            	    COMMA11=(Token)match(input,COMMA,FOLLOW_COMMA_in_from_clause208);  
             	    stream_COMMA.add(COMMA11);
 
 
-            	    ID12=(Token)match(input,ID,FOLLOW_ID_in_from_clause202);  
+            	    ID12=(Token)match(input,ID,FOLLOW_ID_in_from_clause210);  
             	    stream_ID.add(ID12);
 
 
@@ -551,9 +548,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 44:23: -> ( FROM_TABLE ID )*
+            // 48:23: -> ( FROM_TABLE ID )*
             {
-                // MySelect.g:44:26: ( FROM_TABLE ID )*
+                // MySelect.g:48:26: ( FROM_TABLE ID )*
                 while ( stream_ID.hasNext() ) {
                     adaptor.addChild(root_0, 
                     (Object)adaptor.create(FROM_TABLE, "FROM_TABLE")
@@ -602,9 +599,9 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "select_key"
-    // MySelect.g:47:1: select_key : SELECT ;
-    public final MySelect.select_key_return select_key() throws RecognitionException {
-        MySelect.select_key_return retval = new MySelect.select_key_return();
+    // MySelect.g:51:1: select_key : SELECT ;
+    public final MySelectParser.select_key_return select_key() throws RecognitionException {
+        MySelectParser.select_key_return retval = new MySelectParser.select_key_return();
         retval.start = input.LT(1);
 
 
@@ -615,13 +612,13 @@ public TreeAdaptor getTreeAdaptor() {
         Object SELECT13_tree=null;
 
         try {
-            // MySelect.g:47:11: ( SELECT )
-            // MySelect.g:48:3: SELECT
+            // MySelect.g:51:11: ( SELECT )
+            // MySelect.g:52:3: SELECT
             {
             root_0 = (Object)adaptor.nil();
 
 
-            SELECT13=(Token)match(input,SELECT,FOLLOW_SELECT_in_select_key227); 
+            SELECT13=(Token)match(input,SELECT,FOLLOW_SELECT_in_select_key235); 
             SELECT13_tree = 
             (Object)adaptor.create(SELECT13)
             ;
@@ -659,30 +656,30 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "relational_op"
-    // MySelect.g:51:1: relational_op : EQ_SYM ;
-    public final MySelect.relational_op_return relational_op() throws RecognitionException {
-        MySelect.relational_op_return retval = new MySelect.relational_op_return();
+    // MySelect.g:55:1: relational_op : EQ ;
+    public final MySelectParser.relational_op_return relational_op() throws RecognitionException {
+        MySelectParser.relational_op_return retval = new MySelectParser.relational_op_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token EQ_SYM14=null;
+        Token EQ14=null;
 
-        Object EQ_SYM14_tree=null;
+        Object EQ14_tree=null;
 
         try {
-            // MySelect.g:51:14: ( EQ_SYM )
-            // MySelect.g:52:3: EQ_SYM
+            // MySelect.g:55:14: ( EQ )
+            // MySelect.g:56:3: EQ
             {
             root_0 = (Object)adaptor.nil();
 
 
-            EQ_SYM14=(Token)match(input,18,FOLLOW_18_in_relational_op240); 
-            EQ_SYM14_tree = 
-            (Object)adaptor.create(EQ_SYM14)
+            EQ14=(Token)match(input,EQ,FOLLOW_EQ_in_relational_op248); 
+            EQ14_tree = 
+            (Object)adaptor.create(EQ14)
             ;
-            adaptor.addChild(root_0, EQ_SYM14_tree);
+            adaptor.addChild(root_0, EQ14_tree);
 
 
             }
@@ -716,51 +713,45 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "where_clause"
-    // MySelect.g:54:1: where_clause : WHERE ID relational_op ID -> ^( VARDEF ID ) ;
-    public final MySelect.where_clause_return where_clause() throws RecognitionException {
-        MySelect.where_clause_return retval = new MySelect.where_clause_return();
+    // MySelect.g:58:1: where_clause : ID relational_op INT -> ( VARDEF ^( ID INT ) )* ;
+    public final MySelectParser.where_clause_return where_clause() throws RecognitionException {
+        MySelectParser.where_clause_return retval = new MySelectParser.where_clause_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token WHERE15=null;
-        Token ID16=null;
-        Token ID18=null;
-        MySelect.relational_op_return relational_op17 =null;
+        Token ID15=null;
+        Token INT17=null;
+        MySelectParser.relational_op_return relational_op16 =null;
 
 
-        Object WHERE15_tree=null;
-        Object ID16_tree=null;
-        Object ID18_tree=null;
+        Object ID15_tree=null;
+        Object INT17_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
-        RewriteRuleTokenStream stream_WHERE=new RewriteRuleTokenStream(adaptor,"token WHERE");
+        RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
         RewriteRuleSubtreeStream stream_relational_op=new RewriteRuleSubtreeStream(adaptor,"rule relational_op");
         try {
-            // MySelect.g:54:13: ( WHERE ID relational_op ID -> ^( VARDEF ID ) )
-            // MySelect.g:56:3: WHERE ID relational_op ID
+            // MySelect.g:58:13: ( ID relational_op INT -> ( VARDEF ^( ID INT ) )* )
+            // MySelect.g:61:3: ID relational_op INT
             {
-            WHERE15=(Token)match(input,WHERE,FOLLOW_WHERE_in_where_clause254);  
-            stream_WHERE.add(WHERE15);
+            ID15=(Token)match(input,ID,FOLLOW_ID_in_where_clause265);  
+            stream_ID.add(ID15);
 
 
-            ID16=(Token)match(input,ID,FOLLOW_ID_in_where_clause256);  
-            stream_ID.add(ID16);
-
-
-            pushFollow(FOLLOW_relational_op_in_where_clause258);
-            relational_op17=relational_op();
+            pushFollow(FOLLOW_relational_op_in_where_clause267);
+            relational_op16=relational_op();
 
             state._fsp--;
 
-            stream_relational_op.add(relational_op17.getTree());
+            stream_relational_op.add(relational_op16.getTree());
 
-            ID18=(Token)match(input,ID,FOLLOW_ID_in_where_clause260);  
-            stream_ID.add(ID18);
+            INT17=(Token)match(input,INT,FOLLOW_INT_in_where_clause269);  
+            stream_INT.add(INT17);
 
 
             // AST REWRITE
-            // elements: ID
+            // elements: INT, ID
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -770,21 +761,31 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 56:30: -> ^( VARDEF ID )
+            // 61:24: -> ( VARDEF ^( ID INT ) )*
             {
-                // MySelect.g:56:33: ^( VARDEF ID )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot(
-                (Object)adaptor.create(VARDEF, "VARDEF")
-                , root_1);
+                // MySelect.g:61:27: ( VARDEF ^( ID INT ) )*
+                while ( stream_INT.hasNext()||stream_ID.hasNext() ) {
+                    adaptor.addChild(root_0, 
+                    (Object)adaptor.create(VARDEF, "VARDEF")
+                    );
 
-                adaptor.addChild(root_1, 
-                stream_ID.nextNode()
-                );
+                    // MySelect.g:61:35: ^( ID INT )
+                    {
+                    Object root_1 = (Object)adaptor.nil();
+                    root_1 = (Object)adaptor.becomeRoot(
+                    stream_ID.nextNode()
+                    , root_1);
 
-                adaptor.addChild(root_0, root_1);
+                    adaptor.addChild(root_1, 
+                    stream_INT.nextNode()
+                    );
+
+                    adaptor.addChild(root_0, root_1);
+                    }
+
                 }
+                stream_INT.reset();
+                stream_ID.reset();
 
             }
 
@@ -815,52 +816,85 @@ public TreeAdaptor getTreeAdaptor() {
     // $ANTLR end "where_clause"
 
 
-    public static class expression_return extends ParserRuleReturnScope {
+    public static class where_clauses_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
 
-    // $ANTLR start "expression"
-    // MySelect.g:59:1: expression : VARDEF relational_op ID -> ^( VARDEF ID ) ;
-    public final MySelect.expression_return expression() throws RecognitionException {
-        MySelect.expression_return retval = new MySelect.expression_return();
+    // $ANTLR start "where_clauses"
+    // MySelect.g:64:1: where_clauses : WHERE where_clause ( AND where_clause )* -> ( WHERE_CLAUSE where_clause )* ;
+    public final MySelectParser.where_clauses_return where_clauses() throws RecognitionException {
+        MySelectParser.where_clauses_return retval = new MySelectParser.where_clauses_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token VARDEF19=null;
-        Token ID21=null;
-        MySelect.relational_op_return relational_op20 =null;
+        Token WHERE18=null;
+        Token AND20=null;
+        MySelectParser.where_clause_return where_clause19 =null;
+
+        MySelectParser.where_clause_return where_clause21 =null;
 
 
-        Object VARDEF19_tree=null;
-        Object ID21_tree=null;
-        RewriteRuleTokenStream stream_VARDEF=new RewriteRuleTokenStream(adaptor,"token VARDEF");
-        RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
-        RewriteRuleSubtreeStream stream_relational_op=new RewriteRuleSubtreeStream(adaptor,"rule relational_op");
+        Object WHERE18_tree=null;
+        Object AND20_tree=null;
+        RewriteRuleTokenStream stream_AND=new RewriteRuleTokenStream(adaptor,"token AND");
+        RewriteRuleTokenStream stream_WHERE=new RewriteRuleTokenStream(adaptor,"token WHERE");
+        RewriteRuleSubtreeStream stream_where_clause=new RewriteRuleSubtreeStream(adaptor,"rule where_clause");
         try {
-            // MySelect.g:59:11: ( VARDEF relational_op ID -> ^( VARDEF ID ) )
-            // MySelect.g:60:3: VARDEF relational_op ID
+            // MySelect.g:64:14: ( WHERE where_clause ( AND where_clause )* -> ( WHERE_CLAUSE where_clause )* )
+            // MySelect.g:65:3: WHERE where_clause ( AND where_clause )*
             {
-            VARDEF19=(Token)match(input,VARDEF,FOLLOW_VARDEF_in_expression281);  
-            stream_VARDEF.add(VARDEF19);
+            WHERE18=(Token)match(input,WHERE,FOLLOW_WHERE_in_where_clauses294);  
+            stream_WHERE.add(WHERE18);
 
 
-            pushFollow(FOLLOW_relational_op_in_expression283);
-            relational_op20=relational_op();
+            pushFollow(FOLLOW_where_clause_in_where_clauses299);
+            where_clause19=where_clause();
 
             state._fsp--;
 
-            stream_relational_op.add(relational_op20.getTree());
+            stream_where_clause.add(where_clause19.getTree());
 
-            ID21=(Token)match(input,ID,FOLLOW_ID_in_expression285);  
-            stream_ID.add(ID21);
+            // MySelect.g:66:17: ( AND where_clause )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==AND) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // MySelect.g:66:18: AND where_clause
+            	    {
+            	    AND20=(Token)match(input,AND,FOLLOW_AND_in_where_clauses302);  
+            	    stream_AND.add(AND20);
+
+
+            	    pushFollow(FOLLOW_where_clause_in_where_clauses304);
+            	    where_clause21=where_clause();
+
+            	    state._fsp--;
+
+            	    stream_where_clause.add(where_clause21.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
 
 
             // AST REWRITE
-            // elements: ID, VARDEF
+            // elements: where_clause
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -870,21 +904,18 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 60:28: -> ^( VARDEF ID )
+            // 67:3: -> ( WHERE_CLAUSE where_clause )*
             {
-                // MySelect.g:60:31: ^( VARDEF ID )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot(
-                stream_VARDEF.nextNode()
-                , root_1);
+                // MySelect.g:67:6: ( WHERE_CLAUSE where_clause )*
+                while ( stream_where_clause.hasNext() ) {
+                    adaptor.addChild(root_0, 
+                    (Object)adaptor.create(WHERE_CLAUSE, "WHERE_CLAUSE")
+                    );
 
-                adaptor.addChild(root_1, 
-                stream_ID.nextNode()
-                );
+                    adaptor.addChild(root_0, stream_where_clause.nextTree());
 
-                adaptor.addChild(root_0, root_1);
                 }
+                stream_where_clause.reset();
 
             }
 
@@ -912,33 +943,33 @@ public TreeAdaptor getTreeAdaptor() {
         }
         return retval;
     }
-    // $ANTLR end "expression"
+    // $ANTLR end "where_clauses"
 
     // Delegated rules
 
 
  
 
-    public static final BitSet FOLLOW_select_clause_in_stat83 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_select_key_in_select_clause95 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_column_list_clause_in_select_clause99 = new BitSet(new long[]{0x0000000000000822L});
-    public static final BitSet FOLLOW_from_clause_in_select_clause104 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_where_clause_in_select_clause111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_column_list_clause167 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_COMMA_in_column_list_clause170 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_column_list_clause172 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_FROM_in_from_clause195 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_from_clause197 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_COMMA_in_from_clause200 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_from_clause202 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_SELECT_in_select_key227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_relational_op240 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHERE_in_where_clause254 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_where_clause256 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_relational_op_in_where_clause258 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_where_clause260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VARDEF_in_expression281 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_relational_op_in_expression283 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_expression285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_select_clause_in_stat91 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_select_key_in_select_clause103 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_column_list_clause_in_select_clause107 = new BitSet(new long[]{0x0000000000002082L});
+    public static final BitSet FOLLOW_from_clause_in_select_clause112 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_where_clauses_in_select_clause119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_column_list_clause175 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_COMMA_in_column_list_clause178 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_column_list_clause180 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_FROM_in_from_clause203 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_from_clause205 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_COMMA_in_from_clause208 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_from_clause210 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_SELECT_in_select_key235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EQ_in_relational_op248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_where_clause265 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_relational_op_in_where_clause267 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_INT_in_where_clause269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHERE_in_where_clauses294 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_where_clause_in_where_clauses299 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_where_clauses302 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_where_clause_in_where_clauses304 = new BitSet(new long[]{0x0000000000000012L});
 
 }

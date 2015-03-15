@@ -1,1 +1,1 @@
-select name, address from users ,employees where 1 = 1
+select name, address from users ,employees where a  = 2 and b = 1

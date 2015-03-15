@@ -1,13 +1,10 @@
-grammar MyLexer;
-
-options {
-	output=AST;
-	ASTLabelType=CommonTree;
-}
+lexer grammar MyLexer;
 
 SELECT: 'select';
 FROM: 'from';
 WHERE: 'where';
+AND: 'and';
+EQ: '=';
 
 SEMI: ';';
 
@@ -21,6 +18,7 @@ COMMA: ',';
 
 WS: (' ' | '\t' | '\n' | '\r')+ { $channel = HIDDEN; };
 
+/*
 expr:	multExpr (('+'^|'-'^) multExpr)*
 	;
 
@@ -39,3 +37,4 @@ stat:	expr NEWLINE		-> expr
 	|	ID '=' expr NEWLINE -> ^('=' ID expr)
 	|	NEWLINE				->
 	;
+*/

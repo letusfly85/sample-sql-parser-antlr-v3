@@ -1,4 +1,4 @@
-// $ANTLR 3.4 MyLexer.g 2015-03-15 17:59:24
+// $ANTLR 3.4 MyLexer.g 2015-03-15 18:29:10
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -6,172 +6,58 @@ import java.util.List;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked"})
-public class MyLexerLexer extends Lexer {
+public class MySelect_MyLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__13=13;
-    public static final int T__14=14;
-    public static final int T__15=15;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
     public static final int COMMA=4;
-    public static final int FROM=5;
-    public static final int ID=6;
-    public static final int INT=7;
-    public static final int NEWLINE=8;
-    public static final int SELECT=9;
-    public static final int SEMI=10;
-    public static final int WHERE=11;
-    public static final int WS=12;
+    public static final int EQ=5;
+    public static final int FROM=6;
+    public static final int ID=7;
+    public static final int INT=8;
+    public static final int NEWLINE=9;
+    public static final int SELECT=10;
+    public static final int SEMI=11;
+    public static final int WHERE=12;
+    public static final int WS=13;
+    public static final int AND_SYM=14;
+    public static final int COLUMN_LIST=15;
+    public static final int COLUMN_NAME=16;
+    public static final int EQ_SYM=19;
+    public static final int FROM_ALIAS=21;
+    public static final int FROM_LIST=22;
+    public static final int FROM_TABLE=23;
+    public static final int NOT_SYM=27;
+    public static final int OR_SYM=28;
+    public static final int SELECT_STATEMENT=30;
+    public static final int VARDEF=32;
+    public static final int WHERE_CLAUSE=34;
+    public static final int Tokens=35;
 
     // delegates
     // delegators
+    public MySelectLexer gMySelect;
+    public MySelectLexer gParent;
     public Lexer[] getDelegates() {
         return new Lexer[] {};
     }
 
-    public MyLexerLexer() {} 
-    public MyLexerLexer(CharStream input) {
-        this(input, new RecognizerSharedState());
+    public MySelect_MyLexer() {} 
+    public MySelect_MyLexer(CharStream input, MySelectLexer gMySelect) {
+        this(input, new RecognizerSharedState(), gMySelect);
     }
-    public MyLexerLexer(CharStream input, RecognizerSharedState state) {
+    public MySelect_MyLexer(CharStream input, RecognizerSharedState state, MySelectLexer gMySelect) {
         super(input,state);
+        this.gMySelect = gMySelect;
+        gParent = gMySelect;
     }
     public String getGrammarFileName() { return "MyLexer.g"; }
-
-    // $ANTLR start "T__13"
-    public final void mT__13() throws RecognitionException {
-        try {
-            int _type = T__13;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:2:7: ( '(' )
-            // MyLexer.g:2:9: '('
-            {
-            match('('); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__13"
-
-    // $ANTLR start "T__14"
-    public final void mT__14() throws RecognitionException {
-        try {
-            int _type = T__14;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:3:7: ( ')' )
-            // MyLexer.g:3:9: ')'
-            {
-            match(')'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__14"
-
-    // $ANTLR start "T__15"
-    public final void mT__15() throws RecognitionException {
-        try {
-            int _type = T__15;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:4:7: ( '*' )
-            // MyLexer.g:4:9: '*'
-            {
-            match('*'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__15"
-
-    // $ANTLR start "T__16"
-    public final void mT__16() throws RecognitionException {
-        try {
-            int _type = T__16;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:5:7: ( '+' )
-            // MyLexer.g:5:9: '+'
-            {
-            match('+'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__16"
-
-    // $ANTLR start "T__17"
-    public final void mT__17() throws RecognitionException {
-        try {
-            int _type = T__17;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:6:7: ( '-' )
-            // MyLexer.g:6:9: '-'
-            {
-            match('-'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__17"
-
-    // $ANTLR start "T__18"
-    public final void mT__18() throws RecognitionException {
-        try {
-            int _type = T__18;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:7:7: ( '=' )
-            // MyLexer.g:7:9: '='
-            {
-            match('='); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__18"
 
     // $ANTLR start "SELECT"
     public final void mSELECT() throws RecognitionException {
         try {
             int _type = SELECT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:8:7: ( 'select' )
-            // MyLexer.g:8:9: 'select'
+            // MyLexer.g:3:7: ( 'select' )
+            // MyLexer.g:3:9: 'select'
             {
             match("select"); 
 
@@ -193,8 +79,8 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = FROM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:9:5: ( 'from' )
-            // MyLexer.g:9:7: 'from'
+            // MyLexer.g:4:5: ( 'from' )
+            // MyLexer.g:4:7: 'from'
             {
             match("from"); 
 
@@ -216,8 +102,8 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = WHERE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:10:6: ( 'where' )
-            // MyLexer.g:10:8: 'where'
+            // MyLexer.g:5:6: ( 'where' )
+            // MyLexer.g:5:8: 'where'
             {
             match("where"); 
 
@@ -234,13 +120,34 @@ public class MyLexerLexer extends Lexer {
     }
     // $ANTLR end "WHERE"
 
+    // $ANTLR start "EQ"
+    public final void mEQ() throws RecognitionException {
+        try {
+            int _type = EQ;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyLexer.g:6:3: ( '=' )
+            // MyLexer.g:6:5: '='
+            {
+            match('='); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "EQ"
+
     // $ANTLR start "SEMI"
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:12:5: ( ';' )
-            // MyLexer.g:12:7: ';'
+            // MyLexer.g:8:5: ( ';' )
+            // MyLexer.g:8:7: ';'
             {
             match(';'); 
 
@@ -260,10 +167,10 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:14:3: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
-            // MyLexer.g:14:5: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // MyLexer.g:10:3: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
+            // MyLexer.g:10:5: ( 'a' .. 'z' | 'A' .. 'Z' )+
             {
-            // MyLexer.g:14:5: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // MyLexer.g:10:5: ( 'a' .. 'z' | 'A' .. 'Z' )+
             int cnt1=0;
             loop1:
             do {
@@ -318,10 +225,10 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:16:4: ( ( '0' .. '9' )+ )
-            // MyLexer.g:16:6: ( '0' .. '9' )+
+            // MyLexer.g:12:4: ( ( '0' .. '9' )+ )
+            // MyLexer.g:12:6: ( '0' .. '9' )+
             {
-            // MyLexer.g:16:6: ( '0' .. '9' )+
+            // MyLexer.g:12:6: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -376,10 +283,10 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:18:8: ( ( '\\r' )? '\\n' )
-            // MyLexer.g:18:10: ( '\\r' )? '\\n'
+            // MyLexer.g:14:8: ( ( '\\r' )? '\\n' )
+            // MyLexer.g:14:10: ( '\\r' )? '\\n'
             {
-            // MyLexer.g:18:10: ( '\\r' )?
+            // MyLexer.g:14:10: ( '\\r' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -388,7 +295,7 @@ public class MyLexerLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // MyLexer.g:18:10: '\\r'
+                    // MyLexer.g:14:10: '\\r'
                     {
                     match('\r'); 
 
@@ -416,8 +323,8 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:20:6: ( ',' )
-            // MyLexer.g:20:8: ','
+            // MyLexer.g:16:6: ( ',' )
+            // MyLexer.g:16:8: ','
             {
             match(','); 
 
@@ -437,10 +344,10 @@ public class MyLexerLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyLexer.g:22:3: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-            // MyLexer.g:22:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // MyLexer.g:18:3: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+            // MyLexer.g:18:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
             {
-            // MyLexer.g:22:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // MyLexer.g:18:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
             int cnt4=0;
             loop4:
             do {
@@ -493,162 +400,137 @@ public class MyLexerLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // MyLexer.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | SELECT | FROM | WHERE | SEMI | ID | INT | NEWLINE | COMMA | WS )
-        int alt5=15;
+        // MyLexer.g:1:8: ( SELECT | FROM | WHERE | EQ | SEMI | ID | INT | NEWLINE | COMMA | WS )
+        int alt5=10;
         switch ( input.LA(1) ) {
-        case '(':
-            {
-            alt5=1;
-            }
-            break;
-        case ')':
-            {
-            alt5=2;
-            }
-            break;
-        case '*':
-            {
-            alt5=3;
-            }
-            break;
-        case '+':
-            {
-            alt5=4;
-            }
-            break;
-        case '-':
-            {
-            alt5=5;
-            }
-            break;
-        case '=':
-            {
-            alt5=6;
-            }
-            break;
         case 's':
             {
-            int LA5_7 = input.LA(2);
+            int LA5_1 = input.LA(2);
 
-            if ( (LA5_7=='e') ) {
-                int LA5_17 = input.LA(3);
+            if ( (LA5_1=='e') ) {
+                int LA5_12 = input.LA(3);
 
-                if ( (LA5_17=='l') ) {
-                    int LA5_21 = input.LA(4);
+                if ( (LA5_12=='l') ) {
+                    int LA5_16 = input.LA(4);
 
-                    if ( (LA5_21=='e') ) {
-                        int LA5_24 = input.LA(5);
+                    if ( (LA5_16=='e') ) {
+                        int LA5_19 = input.LA(5);
 
-                        if ( (LA5_24=='c') ) {
-                            int LA5_27 = input.LA(6);
+                        if ( (LA5_19=='c') ) {
+                            int LA5_22 = input.LA(6);
 
-                            if ( (LA5_27=='t') ) {
-                                int LA5_30 = input.LA(7);
+                            if ( (LA5_22=='t') ) {
+                                int LA5_25 = input.LA(7);
 
-                                if ( ((LA5_30 >= 'A' && LA5_30 <= 'Z')||(LA5_30 >= 'a' && LA5_30 <= 'z')) ) {
-                                    alt5=11;
+                                if ( ((LA5_25 >= 'A' && LA5_25 <= 'Z')||(LA5_25 >= 'a' && LA5_25 <= 'z')) ) {
+                                    alt5=6;
                                 }
                                 else {
-                                    alt5=7;
+                                    alt5=1;
                                 }
                             }
                             else {
-                                alt5=11;
+                                alt5=6;
                             }
                         }
                         else {
-                            alt5=11;
+                            alt5=6;
                         }
                     }
                     else {
-                        alt5=11;
+                        alt5=6;
                     }
                 }
                 else {
-                    alt5=11;
+                    alt5=6;
                 }
             }
             else {
-                alt5=11;
+                alt5=6;
             }
             }
             break;
         case 'f':
             {
-            int LA5_8 = input.LA(2);
+            int LA5_2 = input.LA(2);
 
-            if ( (LA5_8=='r') ) {
-                int LA5_18 = input.LA(3);
+            if ( (LA5_2=='r') ) {
+                int LA5_13 = input.LA(3);
 
-                if ( (LA5_18=='o') ) {
-                    int LA5_22 = input.LA(4);
+                if ( (LA5_13=='o') ) {
+                    int LA5_17 = input.LA(4);
 
-                    if ( (LA5_22=='m') ) {
-                        int LA5_25 = input.LA(5);
+                    if ( (LA5_17=='m') ) {
+                        int LA5_20 = input.LA(5);
 
-                        if ( ((LA5_25 >= 'A' && LA5_25 <= 'Z')||(LA5_25 >= 'a' && LA5_25 <= 'z')) ) {
-                            alt5=11;
+                        if ( ((LA5_20 >= 'A' && LA5_20 <= 'Z')||(LA5_20 >= 'a' && LA5_20 <= 'z')) ) {
+                            alt5=6;
                         }
                         else {
-                            alt5=8;
+                            alt5=2;
                         }
                     }
                     else {
-                        alt5=11;
+                        alt5=6;
                     }
                 }
                 else {
-                    alt5=11;
+                    alt5=6;
                 }
             }
             else {
-                alt5=11;
+                alt5=6;
             }
             }
             break;
         case 'w':
             {
-            int LA5_9 = input.LA(2);
+            int LA5_3 = input.LA(2);
 
-            if ( (LA5_9=='h') ) {
-                int LA5_19 = input.LA(3);
+            if ( (LA5_3=='h') ) {
+                int LA5_14 = input.LA(3);
 
-                if ( (LA5_19=='e') ) {
-                    int LA5_23 = input.LA(4);
+                if ( (LA5_14=='e') ) {
+                    int LA5_18 = input.LA(4);
 
-                    if ( (LA5_23=='r') ) {
-                        int LA5_26 = input.LA(5);
+                    if ( (LA5_18=='r') ) {
+                        int LA5_21 = input.LA(5);
 
-                        if ( (LA5_26=='e') ) {
-                            int LA5_29 = input.LA(6);
+                        if ( (LA5_21=='e') ) {
+                            int LA5_24 = input.LA(6);
 
-                            if ( ((LA5_29 >= 'A' && LA5_29 <= 'Z')||(LA5_29 >= 'a' && LA5_29 <= 'z')) ) {
-                                alt5=11;
+                            if ( ((LA5_24 >= 'A' && LA5_24 <= 'Z')||(LA5_24 >= 'a' && LA5_24 <= 'z')) ) {
+                                alt5=6;
                             }
                             else {
-                                alt5=9;
+                                alt5=3;
                             }
                         }
                         else {
-                            alt5=11;
+                            alt5=6;
                         }
                     }
                     else {
-                        alt5=11;
+                        alt5=6;
                     }
                 }
                 else {
-                    alt5=11;
+                    alt5=6;
                 }
             }
             else {
-                alt5=11;
+                alt5=6;
             }
+            }
+            break;
+        case '=':
+            {
+            alt5=4;
             }
             break;
         case ';':
             {
-            alt5=10;
+            alt5=5;
             }
             break;
         case 'A':
@@ -701,7 +583,7 @@ public class MyLexerLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt5=11;
+            alt5=6;
             }
             break;
         case '0':
@@ -715,49 +597,49 @@ public class MyLexerLexer extends Lexer {
         case '8':
         case '9':
             {
-            alt5=12;
+            alt5=7;
             }
             break;
         case '\r':
             {
-            int LA5_13 = input.LA(2);
+            int LA5_8 = input.LA(2);
 
-            if ( (LA5_13=='\n') ) {
-                int LA5_14 = input.LA(3);
+            if ( (LA5_8=='\n') ) {
+                int LA5_9 = input.LA(3);
 
-                if ( ((LA5_14 >= '\t' && LA5_14 <= '\n')||LA5_14=='\r'||LA5_14==' ') ) {
-                    alt5=15;
+                if ( ((LA5_9 >= '\t' && LA5_9 <= '\n')||LA5_9=='\r'||LA5_9==' ') ) {
+                    alt5=10;
                 }
                 else {
-                    alt5=13;
+                    alt5=8;
                 }
             }
             else {
-                alt5=15;
+                alt5=10;
             }
             }
             break;
         case '\n':
             {
-            int LA5_14 = input.LA(2);
+            int LA5_9 = input.LA(2);
 
-            if ( ((LA5_14 >= '\t' && LA5_14 <= '\n')||LA5_14=='\r'||LA5_14==' ') ) {
-                alt5=15;
+            if ( ((LA5_9 >= '\t' && LA5_9 <= '\n')||LA5_9=='\r'||LA5_9==' ') ) {
+                alt5=10;
             }
             else {
-                alt5=13;
+                alt5=8;
             }
             }
             break;
         case ',':
             {
-            alt5=14;
+            alt5=9;
             }
             break;
         case '\t':
         case ' ':
             {
-            alt5=15;
+            alt5=10;
             }
             break;
         default:
@@ -770,119 +652,79 @@ public class MyLexerLexer extends Lexer {
 
         switch (alt5) {
             case 1 :
-                // MyLexer.g:1:10: T__13
-                {
-                mT__13(); 
-
-
-                }
-                break;
-            case 2 :
-                // MyLexer.g:1:16: T__14
-                {
-                mT__14(); 
-
-
-                }
-                break;
-            case 3 :
-                // MyLexer.g:1:22: T__15
-                {
-                mT__15(); 
-
-
-                }
-                break;
-            case 4 :
-                // MyLexer.g:1:28: T__16
-                {
-                mT__16(); 
-
-
-                }
-                break;
-            case 5 :
-                // MyLexer.g:1:34: T__17
-                {
-                mT__17(); 
-
-
-                }
-                break;
-            case 6 :
-                // MyLexer.g:1:40: T__18
-                {
-                mT__18(); 
-
-
-                }
-                break;
-            case 7 :
-                // MyLexer.g:1:46: SELECT
+                // MyLexer.g:1:10: SELECT
                 {
                 mSELECT(); 
 
 
                 }
                 break;
-            case 8 :
-                // MyLexer.g:1:53: FROM
+            case 2 :
+                // MyLexer.g:1:17: FROM
                 {
                 mFROM(); 
 
 
                 }
                 break;
-            case 9 :
-                // MyLexer.g:1:58: WHERE
+            case 3 :
+                // MyLexer.g:1:22: WHERE
                 {
                 mWHERE(); 
 
 
                 }
                 break;
-            case 10 :
-                // MyLexer.g:1:64: SEMI
+            case 4 :
+                // MyLexer.g:1:28: EQ
+                {
+                mEQ(); 
+
+
+                }
+                break;
+            case 5 :
+                // MyLexer.g:1:31: SEMI
                 {
                 mSEMI(); 
 
 
                 }
                 break;
-            case 11 :
-                // MyLexer.g:1:69: ID
+            case 6 :
+                // MyLexer.g:1:36: ID
                 {
                 mID(); 
 
 
                 }
                 break;
-            case 12 :
-                // MyLexer.g:1:72: INT
+            case 7 :
+                // MyLexer.g:1:39: INT
                 {
                 mINT(); 
 
 
                 }
                 break;
-            case 13 :
-                // MyLexer.g:1:76: NEWLINE
+            case 8 :
+                // MyLexer.g:1:43: NEWLINE
                 {
                 mNEWLINE(); 
 
 
                 }
                 break;
-            case 14 :
-                // MyLexer.g:1:84: COMMA
+            case 9 :
+                // MyLexer.g:1:51: COMMA
                 {
                 mCOMMA(); 
 
 
                 }
                 break;
-            case 15 :
-                // MyLexer.g:1:90: WS
+            case 10 :
+                // MyLexer.g:1:57: WS
                 {
                 mWS(); 
 
