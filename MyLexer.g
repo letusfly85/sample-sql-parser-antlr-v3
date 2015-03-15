@@ -5,6 +5,11 @@ FROM: 'from';
 WHERE: 'where';
 AND: 'and';
 EQ: '=';
+LTH: '<';
+GTH: '>';
+NOT_EQ: '!=';
+LET: '<=';
+GET: '>=';
 
 SEMI: ';';
 

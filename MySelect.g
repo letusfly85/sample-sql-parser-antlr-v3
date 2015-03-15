@@ -43,6 +43,10 @@ select_clause:
 		)
 		;
 
+table_name:
+	ID
+	;
+
 column_name:
 	USER_VAR | ID
 	;
@@ -65,8 +69,8 @@ column_list_clause:
 	;
 
 from_clause:
-		FROM ID (COMMA ID)* (NEWLINE)?
-	-> (FROM_TABLE ID)*
+		FROM table_name (COMMA table_name)* (NEWLINE)?
+	->	(FROM_TABLE table_name)*
 	;
 		
 select_key:
@@ -74,20 +78,19 @@ select_key:
 	;
 
 relational_op: 
-		EQ;  //| LTH | GTH | NOT_EQ | LET | GET  ;
-
-where_clause:
-		//WHERE expression -> (WHERE_CLAUSE expression)
-		//WHERE INT relational_op INT -> ^(VARDEF INT)
-		ID relational_op INT (NEWLINE)?
-	-> (VARDEF ^(ID INT))*
-	;
+		EQ | LTH | GTH | NOT_EQ | LET | GET  ;
 
 where_clauses:
 		WHERE
 			where_clause (AND where_clause)*
 		->	(WHERE_CLAUSE where_clause)*
 		;
+
+where_clause:
+		//WHERE expression -> (WHERE_CLAUSE expression)
+		ID relational_op INT (NEWLINE)?
+	-> (VARDEF ^(ID INT))*
+	;
 
 /*
 expression:	exp_factor1 ( OR_SYM exp_factor1 )* ;
