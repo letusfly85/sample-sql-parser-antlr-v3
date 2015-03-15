@@ -21,7 +21,8 @@ public class Test {
 
 				for (int i=0; i < tree.getChildCount(); i++) {
 					CommonTree cTree = (CommonTree)tree.getChild(i);
-					System.out.printf("#\t# %s\n", cTree.getText());
+					//System.out.printf("#\t# %s\n", cTree.getText());
+					System.out.printf("---\t %s\n", cTree.toStringTree());
 
 					if (cTree.getChildCount() > 0) {
 							walkTree(cTree);

@@ -10,7 +10,10 @@ import MyLexer;
 tokens {
 	SELECT_STATEMENT;
 	COLUMN_LIST;
+	COLUMN_CLAUSE;
 	COLUMN_NAME;
+	COLUMN_ALIAS;
+	ALIAS_NAME;
 	FROM_LIST;
 	FROM_TABLE;
 	FROM_ALIAS;
@@ -40,8 +43,27 @@ select_clause:
 		)
 		;
 
+column_name:
+	ID
+	;
+
+alias:
+	ID
+	;
+
+column_clause:
+	column_name  alias
+	-> (COLUMN_CLAUSE ^(COLUMN_NAME column_name COLUMN_ALIAS alias))* 
+	|
+	column_name 
+	-> (COLUMN_CLAUSE ^(COLUMN_NAME column_name))* 
+	;
+
 column_list_clause:
-		ID (COMMA ID)* -> (COLUMN_NAME ID)*
+			column_clause (COMMA column_clause)*
+		//->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name (ALIAS_NAME alias)?))*
+		->	(column_clause)*
+		//->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name (ALIAS_NAME alias)?))*
 		;
 
 from_clause:
