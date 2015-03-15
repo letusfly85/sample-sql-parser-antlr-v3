@@ -44,12 +44,12 @@ select_clause:
 		select_key
 		column_list_clause
 		(from_clause)?
-		(where_clauses)?
+		(where_clause)?
 		->
 		^(SELECT_STATEMENT
 			^(COLUMN_LIST column_list_clause)
 			^(FROM_LIST from_clause)*
-			^(WHERE_CLAUSES where_clauses)*
+			^(WHERE_CLAUSES where_clause)*
 		)
 		;
 
@@ -87,30 +87,14 @@ select_key:
 		SELECT
 	;
 
-relational_op: 
-		EQ | LTH | GTH | NOT_EQ | LET | GET  ;
-
-expr_op:
-		AND | XOR | OR | NOT;	
-
-where_clauses:
-		WHERE
-			where_clause (AND where_clause)*
-		->	(WHERE_CLAUSE where_clause)*
+where_clause:
+		WHERE expression
+	->	(expression)*
 		;
 
-where_clause:
-//		WHERE expression
-//	->	(WHERE_CLAUSE expression)*
-//		ID relational_op INT (NEWLINE)?
-//	->	(VARDEF ^(ID INT))*
-		WHERE equality_expression
-	->	equality_expression
-	;
-
-equality_expression:
-		left_element relational_op right_element (expr_op left_element relational_op right_element)*
-	->	(REL ^(EXPR relational_op ^(left_element right_element)))*  
+expression:
+		simple_expression (NEWLINE)? (expr_op simple_expression (NEWLINE)?)*
+	-> (REL simple_expression)*
 	;
 
 element:
@@ -125,6 +109,34 @@ left_element:
 		element
 	;
 
+target_element:
+		element
+	;
+
+relational_op: 
+		EQ | LTH | GTH | NOT_EQ | LET | GET  ;
+
+expr_op:
+		AND | XOR | OR | NOT;	
+
+between_op:
+		BETWEEN
+	;
+
+is_or_is_not:
+		IS | IS NOT
+	;
+
+simple_expression:
+		left_element relational_op right_element
+	->	^(EXPR relational_op ^(left_element right_element))
+	|	
+		target_element between_op left_element AND right_element
+	->  ^(EXPR between_op ^(left_element right_element))
+	|
+		target_element is_or_is_not NULL
+	-> 	^(EXPR is_or_is_not ^(target_element))
+	;
 
 /*
 expression:	exp_factor1 ( OR exp_factor1 )* ;

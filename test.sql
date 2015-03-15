@@ -3,5 +3,7 @@ from
 	 users
 	,employees
 where
-	a  = 2
+	a = 2
 and b = 1
+and c between 1 and 5
+and d is not null
