@@ -1,4 +1,4 @@
-// $ANTLR 3.4 MyLexer.g 2015-03-15 15:44:56
+// $ANTLR 3.4 MyLexer.g 2015-03-15 17:59:23
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -11,16 +11,16 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class MyLexerParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMA", "FROM", "ID", "INT", "NEWLINE", "SELECT", "SEMI", "WS", "'('", "')'", "'*'", "'+'", "'-'", "'='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMA", "FROM", "ID", "INT", "NEWLINE", "SELECT", "SEMI", "WHERE", "WS", "'('", "')'", "'*'", "'+'", "'-'", "'='"
     };
 
     public static final int EOF=-1;
-    public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
+    public static final int T__18=18;
     public static final int COMMA=4;
     public static final int FROM=5;
     public static final int ID=6;
@@ -28,7 +28,8 @@ public class MyLexerParser extends Parser {
     public static final int NEWLINE=8;
     public static final int SELECT=9;
     public static final int SEMI=10;
-    public static final int WS=11;
+    public static final int WHERE=11;
+    public static final int WS=12;
 
     // delegates
     public Parser[] getDelegates() {
@@ -89,7 +90,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_multExpr_in_expr121);
+            pushFollow(FOLLOW_multExpr_in_expr126);
             multExpr1=multExpr();
 
             state._fsp--;
@@ -102,7 +103,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0 >= 15 && LA2_0 <= 16)) ) {
+                if ( ((LA2_0 >= 16 && LA2_0 <= 17)) ) {
                     alt2=1;
                 }
 
@@ -115,10 +116,10 @@ public TreeAdaptor getTreeAdaptor() {
             	    int alt1=2;
             	    int LA1_0 = input.LA(1);
 
-            	    if ( (LA1_0==15) ) {
+            	    if ( (LA1_0==16) ) {
             	        alt1=1;
             	    }
-            	    else if ( (LA1_0==16) ) {
+            	    else if ( (LA1_0==17) ) {
             	        alt1=2;
             	    }
             	    else {
@@ -132,7 +133,7 @@ public TreeAdaptor getTreeAdaptor() {
             	        case 1 :
             	            // MyLexer.g:24:18: '+' ^
             	            {
-            	            char_literal2=(Token)match(input,15,FOLLOW_15_in_expr125); 
+            	            char_literal2=(Token)match(input,16,FOLLOW_16_in_expr130); 
             	            char_literal2_tree = 
             	            (CommonTree)adaptor.create(char_literal2)
             	            ;
@@ -144,7 +145,7 @@ public TreeAdaptor getTreeAdaptor() {
             	        case 2 :
             	            // MyLexer.g:24:23: '-' ^
             	            {
-            	            char_literal3=(Token)match(input,16,FOLLOW_16_in_expr128); 
+            	            char_literal3=(Token)match(input,17,FOLLOW_17_in_expr133); 
             	            char_literal3_tree = 
             	            (CommonTree)adaptor.create(char_literal3)
             	            ;
@@ -157,7 +158,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_multExpr_in_expr132);
+            	    pushFollow(FOLLOW_multExpr_in_expr137);
             	    multExpr4=multExpr();
 
             	    state._fsp--;
@@ -227,7 +228,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_atom_in_multExpr145);
+            pushFollow(FOLLOW_atom_in_multExpr150);
             atom5=atom();
 
             state._fsp--;
@@ -240,7 +241,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==14) ) {
+                if ( (LA3_0==15) ) {
                     alt3=1;
                 }
 
@@ -249,14 +250,14 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // MyLexer.g:28:10: '*' ^ atom
             	    {
-            	    char_literal6=(Token)match(input,14,FOLLOW_14_in_multExpr148); 
+            	    char_literal6=(Token)match(input,15,FOLLOW_15_in_multExpr153); 
             	    char_literal6_tree = 
             	    (CommonTree)adaptor.create(char_literal6)
             	    ;
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal6_tree, root_0);
 
 
-            	    pushFollow(FOLLOW_atom_in_multExpr152);
+            	    pushFollow(FOLLOW_atom_in_multExpr157);
             	    atom7=atom();
 
             	    state._fsp--;
@@ -337,7 +338,7 @@ public TreeAdaptor getTreeAdaptor() {
                 alt4=2;
                 }
                 break;
-            case 12:
+            case 13:
                 {
                 alt4=3;
                 }
@@ -357,7 +358,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    INT8=(Token)match(input,INT,FOLLOW_INT_in_atom163); 
+                    INT8=(Token)match(input,INT,FOLLOW_INT_in_atom168); 
                     INT8_tree = 
                     (CommonTree)adaptor.create(INT8)
                     ;
@@ -372,7 +373,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    ID9=(Token)match(input,ID,FOLLOW_ID_in_atom168); 
+                    ID9=(Token)match(input,ID,FOLLOW_ID_in_atom173); 
                     ID9_tree = 
                     (CommonTree)adaptor.create(ID9)
                     ;
@@ -387,16 +388,16 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    char_literal10=(Token)match(input,12,FOLLOW_12_in_atom173); 
+                    char_literal10=(Token)match(input,13,FOLLOW_13_in_atom178); 
 
-                    pushFollow(FOLLOW_expr_in_atom176);
+                    pushFollow(FOLLOW_expr_in_atom181);
                     expr11=expr();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, expr11.getTree());
 
-                    char_literal12=(Token)match(input,13,FOLLOW_13_in_atom178); 
+                    char_literal12=(Token)match(input,14,FOLLOW_14_in_atom183); 
 
                     }
                     break;
@@ -457,7 +458,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0 >= ID && LA5_0 <= NEWLINE)||LA5_0==12) ) {
+                if ( ((LA5_0 >= ID && LA5_0 <= NEWLINE)||LA5_0==13) ) {
                     alt5=1;
                 }
 
@@ -466,7 +467,7 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // MyLexer.g:36:9: stat
             	    {
-            	    pushFollow(FOLLOW_stat_in_prog190);
+            	    pushFollow(FOLLOW_stat_in_prog195);
             	    stat13=stat();
 
             	    state._fsp--;
@@ -543,7 +544,7 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree NEWLINE19_tree=null;
         CommonTree NEWLINE20_tree=null;
         RewriteRuleTokenStream stream_NEWLINE=new RewriteRuleTokenStream(adaptor,"token NEWLINE");
-        RewriteRuleTokenStream stream_17=new RewriteRuleTokenStream(adaptor,"token 17");
+        RewriteRuleTokenStream stream_18=new RewriteRuleTokenStream(adaptor,"token 18");
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
@@ -551,7 +552,7 @@ public TreeAdaptor getTreeAdaptor() {
             int alt6=3;
             switch ( input.LA(1) ) {
             case INT:
-            case 12:
+            case 13:
                 {
                 alt6=1;
                 }
@@ -560,10 +561,10 @@ public TreeAdaptor getTreeAdaptor() {
                 {
                 int LA6_2 = input.LA(2);
 
-                if ( (LA6_2==17) ) {
+                if ( (LA6_2==18) ) {
                     alt6=2;
                 }
-                else if ( (LA6_2==NEWLINE||(LA6_2 >= 14 && LA6_2 <= 16)) ) {
+                else if ( (LA6_2==NEWLINE||(LA6_2 >= 15 && LA6_2 <= 17)) ) {
                     alt6=1;
                 }
                 else {
@@ -592,14 +593,14 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // MyLexer.g:38:7: expr NEWLINE
                     {
-                    pushFollow(FOLLOW_expr_in_stat203);
+                    pushFollow(FOLLOW_expr_in_stat208);
                     expr14=expr();
 
                     state._fsp--;
 
                     stream_expr.add(expr14.getTree());
 
-                    NEWLINE15=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat205);  
+                    NEWLINE15=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat210);  
                     stream_NEWLINE.add(NEWLINE15);
 
 
@@ -628,27 +629,27 @@ public TreeAdaptor getTreeAdaptor() {
                 case 2 :
                     // MyLexer.g:39:4: ID '=' expr NEWLINE
                     {
-                    ID16=(Token)match(input,ID,FOLLOW_ID_in_stat215);  
+                    ID16=(Token)match(input,ID,FOLLOW_ID_in_stat220);  
                     stream_ID.add(ID16);
 
 
-                    char_literal17=(Token)match(input,17,FOLLOW_17_in_stat217);  
-                    stream_17.add(char_literal17);
+                    char_literal17=(Token)match(input,18,FOLLOW_18_in_stat222);  
+                    stream_18.add(char_literal17);
 
 
-                    pushFollow(FOLLOW_expr_in_stat219);
+                    pushFollow(FOLLOW_expr_in_stat224);
                     expr18=expr();
 
                     state._fsp--;
 
                     stream_expr.add(expr18.getTree());
 
-                    NEWLINE19=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat221);  
+                    NEWLINE19=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat226);  
                     stream_NEWLINE.add(NEWLINE19);
 
 
                     // AST REWRITE
-                    // elements: 17, expr, ID
+                    // elements: 18, expr, ID
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -664,7 +665,7 @@ public TreeAdaptor getTreeAdaptor() {
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
-                        stream_17.nextNode()
+                        stream_18.nextNode()
                         , root_1);
 
                         adaptor.addChild(root_1, 
@@ -686,7 +687,7 @@ public TreeAdaptor getTreeAdaptor() {
                 case 3 :
                     // MyLexer.g:40:4: NEWLINE
                     {
-                    NEWLINE20=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat236);  
+                    NEWLINE20=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_stat241);  
                     stream_NEWLINE.add(NEWLINE20);
 
 
@@ -739,25 +740,25 @@ public TreeAdaptor getTreeAdaptor() {
 
  
 
-    public static final BitSet FOLLOW_multExpr_in_expr121 = new BitSet(new long[]{0x0000000000018002L});
-    public static final BitSet FOLLOW_15_in_expr125 = new BitSet(new long[]{0x00000000000010C0L});
-    public static final BitSet FOLLOW_16_in_expr128 = new BitSet(new long[]{0x00000000000010C0L});
-    public static final BitSet FOLLOW_multExpr_in_expr132 = new BitSet(new long[]{0x0000000000018002L});
-    public static final BitSet FOLLOW_atom_in_multExpr145 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_multExpr148 = new BitSet(new long[]{0x00000000000010C0L});
-    public static final BitSet FOLLOW_atom_in_multExpr152 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_INT_in_atom163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_atom168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_atom173 = new BitSet(new long[]{0x00000000000010C0L});
-    public static final BitSet FOLLOW_expr_in_atom176 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_atom178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_stat_in_prog190 = new BitSet(new long[]{0x00000000000011C2L});
-    public static final BitSet FOLLOW_expr_in_stat203 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_NEWLINE_in_stat205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_stat215 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_stat217 = new BitSet(new long[]{0x00000000000010C0L});
-    public static final BitSet FOLLOW_expr_in_stat219 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_NEWLINE_in_stat221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEWLINE_in_stat236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_multExpr_in_expr126 = new BitSet(new long[]{0x0000000000030002L});
+    public static final BitSet FOLLOW_16_in_expr130 = new BitSet(new long[]{0x00000000000020C0L});
+    public static final BitSet FOLLOW_17_in_expr133 = new BitSet(new long[]{0x00000000000020C0L});
+    public static final BitSet FOLLOW_multExpr_in_expr137 = new BitSet(new long[]{0x0000000000030002L});
+    public static final BitSet FOLLOW_atom_in_multExpr150 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_multExpr153 = new BitSet(new long[]{0x00000000000020C0L});
+    public static final BitSet FOLLOW_atom_in_multExpr157 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_INT_in_atom168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atom173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_atom178 = new BitSet(new long[]{0x00000000000020C0L});
+    public static final BitSet FOLLOW_expr_in_atom181 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_atom183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_stat_in_prog195 = new BitSet(new long[]{0x00000000000021C2L});
+    public static final BitSet FOLLOW_expr_in_stat208 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_NEWLINE_in_stat210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_stat220 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_stat222 = new BitSet(new long[]{0x00000000000020C0L});
+    public static final BitSet FOLLOW_expr_in_stat224 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_NEWLINE_in_stat226 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEWLINE_in_stat241 = new BitSet(new long[]{0x0000000000000002L});
 
 }

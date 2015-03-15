@@ -6,8 +6,8 @@ options {
 }
 
 SELECT: 'select';
-
 FROM: 'from';
+WHERE: 'where';
 
 SEMI: ';';
 
