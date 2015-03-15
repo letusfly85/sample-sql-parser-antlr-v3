@@ -44,33 +44,34 @@ select_clause:
 		;
 
 column_name:
-	ID
+	USER_VAR | ID
 	;
 
-alias:
+column_name_alias:
 	ID
 	;
 
 column_clause:
-		column_name  alias
-	->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name COLUMN_ALIAS alias))* 
+		column_name  column_name_alias
+	->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name COLUMN_ALIAS column_name_alias))* 
 	|
-		column_name 
+		column_name
 	->	(COLUMN_CLAUSE ^(COLUMN_NAME column_name))* 
 	;
 
 column_list_clause:
-			column_clause (COMMA column_clause)*
-		->	(column_clause)*
-		;
+		column_clause (COMMA column_clause)* (NEWLINE)?
+	->	(column_clause)*
+	;
 
 from_clause:
-		FROM ID (COMMA ID)* -> (FROM_TABLE ID)*
-		;
+		FROM ID (COMMA ID)* (NEWLINE)?
+	-> (FROM_TABLE ID)*
+	;
 		
 select_key:
 		SELECT
-		;
+	;
 
 relational_op: 
 		EQ;  //| LTH | GTH | NOT_EQ | LET | GET  ;
@@ -78,8 +79,9 @@ relational_op:
 where_clause:
 		//WHERE expression -> (WHERE_CLAUSE expression)
 		//WHERE INT relational_op INT -> ^(VARDEF INT)
-		ID relational_op INT -> (VARDEF ^(ID INT))*
-		;
+		ID relational_op INT (NEWLINE)?
+	-> (VARDEF ^(ID INT))*
+	;
 
 where_clauses:
 		WHERE

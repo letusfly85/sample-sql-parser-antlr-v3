@@ -8,7 +8,7 @@ EQ: '=';
 
 SEMI: ';';
 
-ID: ('a'..'z' | 'A' .. 'Z')+ ;
+ID: ('a'..'z' | 'A' .. 'Z' | '_')+ ;
 
 INT: '0'..'9'+ ;
 
@@ -18,23 +18,13 @@ COMMA: ',';
 
 WS: (' ' | '\t' | '\n' | '\r')+ { $channel = HIDDEN; };
 
-/*
-expr:	multExpr (('+'^|'-'^) multExpr)*
-	;
+USER_VAR:
+	'@' (USER_VAR_SUBFIX1 | USER_VAR_SUBFIX2 | USER_VAR_SUBFIX3 | USER_VAR_SUBFIX4)
+;
 
-multExpr
-	:	atom ('*' ^ atom)*
-	;
+DOT: '.';
 
-atom:	INT
-	|	ID
-	|	'('! expr ')'!
-	;
-
-prog:	( stat {System.out.println($stat.tree.toStringTree());} )+ ;
-
-stat:	expr NEWLINE		-> expr
-	|	ID '=' expr NEWLINE -> ^('=' ID expr)
-	|	NEWLINE				->
-	;
-*/
+fragment USER_VAR_SUBFIX1:	(  '`' (~'`' )+ '`'  ) ;
+fragment USER_VAR_SUBFIX2:	( '\'' (~'\'')+ '\'' ) ;
+fragment USER_VAR_SUBFIX3:	( '\"' (~'\"')+ '\"' ) ;
+fragment USER_VAR_SUBFIX4:	( 'A'..'Z' | 'a'..'z' | '_' | '$' | '0'..'9' | DOT )+ ;
