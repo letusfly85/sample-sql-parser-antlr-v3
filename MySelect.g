@@ -132,7 +132,7 @@ simple_expression:
 	->	^(EXPR relational_op ^(left_element right_element))
 	|	
 		target_element between_op left_element AND right_element
-	->  ^(EXPR between_op ^(left_element right_element))
+	->	^(EXPR between_op ^(left_element right_element))
 	|
 		target_element is_or_is_not NULL
 	-> 	^(EXPR is_or_is_not ^(target_element))
